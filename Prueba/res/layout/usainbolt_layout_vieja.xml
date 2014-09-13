@@ -1,0 +1,33 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" 
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dip"
+        android:gravity="center"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:textColor="#0000ff"
+        android:text="Quick GPS Demo"/>
+    
+    <TextView 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dip"
+        android:gravity="center"
+        android:text="Fine Location = waiting on gps..."
+    	android:id="@+id/locat_label" />
+    
+    <Button 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dip"
+        android:layout_gravity="center"
+        android:text="GPS Settings"
+        android:id="@+id/settings_button"/>
+
+</LinearLayout>
