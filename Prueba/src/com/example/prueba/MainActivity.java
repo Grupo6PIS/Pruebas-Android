@@ -1,9 +1,16 @@
 package com.example.prueba;
 
+import com.beatit.challenges.UsainBolt;
+import com.beatit.persistence.UsainBoltDAO;
+
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputFilter.LengthFilter;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
 
 
 public class MainActivity extends Activity {
@@ -12,6 +19,17 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        
+    	UsainBoltDAO db = new UsainBoltDAO(this);
+    	
+		UsainBolt challenge = new UsainBolt();
+		challenge.setChallengeId(0);
+		challenge.setName("Usain Bolt");
+		challenge.setDescription("Debes llegar a la velocidad 6km/h en el menor tiempo posible.");
+		challenge.setDuration(1);
+		challenge.setLevel(1);
+		
+		db.addUsainBolt(challenge);
     }
 
 
@@ -32,5 +50,20 @@ public class MainActivity extends Activity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+    
+    public void usainBoltChallenge(View view) 
+    {
+//    	Toast.makeText(this, "Click", Toast.LENGTH_LONG).show();;
+        Intent intent = new Intent(MainActivity.this, UsainBolt.class);
+        startActivity(intent);
+    }
+    
+    public void ranking(View view){
+    	
+    	 Intent intent = new Intent(MainActivity.this, RankingActivity.class);
+         startActivity(intent);
+    	
+    	
     }
 }
